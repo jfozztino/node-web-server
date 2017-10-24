@@ -32,7 +32,7 @@ hbs.registerHelper('screamIt', (text) => text.toUpperCase());
 app.get('/', (req, res) => {
     res.render('home.hbs', {
       pageTitle: 'jFozztino',
-      subHeader: `full stack software engineer and Ariana Grande's 287th biggest fan`,
+      subHeader: `software developer and Ariana Grande's 287th biggest fan`,
       welcomeMessage: 'welcome to my internet location',
     });
 });
