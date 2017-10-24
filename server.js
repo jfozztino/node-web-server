@@ -16,12 +16,12 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((req, res, next) => {
-  res.render('maintenance.hbs', {
-    pageTitle: 'sorry'
-  });
-  next();
-});
+// app.use((req, res, next) => {
+//   res.render('maintenance.hbs', {
+//     pageTitle: 'sorry'
+//   });
+//   next();
+// });
 
 app.use(express.static(__dirname + '/public'));
 
