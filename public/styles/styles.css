@@ -1,8 +1,24 @@
+html {
+  background-color: #efefef;
+}
+
+html,
 body {
+  height: 100%;
+  min-height: 100%;
+}
+body {
+  background-color: #fff;
   width: 50vw;
   display: block;
   margin: 0 auto;
   font-family: "Droid Serif", Georgia, serif;
+  position: relative;
+  padding: 20px 40px 50px;
+}
+
+nav {
+  text-align: right;
 }
 
 ul {
@@ -18,4 +34,9 @@ li {
 a,
 a:visited {
   color: #000;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
 }
