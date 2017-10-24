@@ -7,14 +7,14 @@ var app = express();
 hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
 
-app.use((req, res, next) => {
-  var now = new Date().toString();
-  var log = `${now}: ${req.method} ${req.url}`;
-  fs.appendFile('server.log', log + '\n', (err) => {
-    console.log('Unable to append to server.log.');
-  });
-  next();
-});
+// app.use((req, res, next) => {
+//   var now = new Date().toString();
+//   var log = `${now}: ${req.method} ${req.url}`;
+//   fs.appendFile('server.log', log + '\n', (err) => {
+//     console.log('Unable to append to server.log.');
+//   });
+//   next();
+// });
 
 // app.use((req, res, next) => {
 //   res.render('maintenance.hbs', {
@@ -31,16 +31,25 @@ hbs.registerHelper('screamIt', (text) => text.toUpperCase());
 
 app.get('/', (req, res) => {
     res.render('home.hbs', {
-      pageTitle: 'Ariana Grande',
-      welcomeMessage: 'welcome to the most bestest Ari fansite on the web',
+      pageTitle: 'jFozztino',
+      subHeader: `full stack software engineer and Ariana Grande's 287th biggest fan`,
+      welcomeMessage: 'welcome to my internet location',
     });
 });
 
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
-      pageTitle: 'About Ariana Grande',
+      pageTitle: 'about jFozztino',
     });
 });
+
+app.get('/projects', (req, res) => {
+    res.render('about.hbs', {
+      pageTitle: 'projects by jFozztino',
+    });
+});
+
+
 
 app.get('/bad', (req, res) => {
     res.send({
