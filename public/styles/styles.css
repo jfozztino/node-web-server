@@ -20,13 +20,114 @@ body {
   position: relative;
   padding-bottom: 50px;
 }
+.banner-img {
+  background-image: url('../images/la-sunset-profile.jpeg');
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+  position: relative;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-img img {
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 100px #fff;
+  box-shadow: 0 0 100px #fff;
+  -webkit-animation-name: throb;
+  animation-name: throb;
+  -webkit-animation-duration: 5s;
+  animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes throb {
+  0% {
+    -ms-transform: scale(1, 1); /* IE 9 */
+    -webkit-transform: scale(1, 1); /* Safari */
+    transform: scale(1, 1);
+  }
+  50% {
+    -ms-transform: scale(.9, .9); /* IE 9 */
+    -webkit-transform: scale(.9, .9); /* Safari */
+    transform: scale(.9, .9);
+  }
+}
+@-o-keyframes throb {
+  0% {
+    -ms-transform: scale(1, 1); /* IE 9 */
+    -webkit-transform: scale(1, 1); /* Safari */
+    transform: scale(1, 1);
+  }
+  50% {
+    -ms-transform: scale(.9, .9); /* IE 9 */
+    -webkit-transform: scale(.9, .9); /* Safari */
+    transform: scale(.9, .9);
+  }
+}
+@-moz-keyframes throb {
+  0% {
+    -ms-transform: scale(1, 1); /* IE 9 */
+    -webkit-transform: scale(1, 1); /* Safari */
+    transform: scale(1, 1);
+  }
+  50% {
+    -ms-transform: scale(.9, .9); /* IE 9 */
+    -webkit-transform: scale(.9, .9); /* Safari */
+    transform: scale(.9, .9);
+  }
+}
+@keyframes throb {
+  0% {
+    -ms-transform: scale(1, 1); /* IE 9 */
+    -webkit-transform: scale(1, 1); /* Safari */
+    transform: scale(1, 1);
+  }
+  50% {
+    -ms-transform: scale(.9, .9); /* IE 9 */
+    -webkit-transform: scale(.9, .9); /* Safari */
+    transform: scale(.9, .9);
+  }
+}
+
+/*.polygon {
+  -webkit-clip-path: polygon(0 75%, 100% 96%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 75%, 100% 96%, 100% 100%, 0% 100%);
+  background-color: #000;
+  position: absolute;
+  bottom: -10px;
+  z-index: 10000;
+  height: 200px;
+  width: 100%;
+}*/
 
 header {
-  padding: 40px;
+  padding: 10px 40px;
+  color: #fff;
+  background-color: #000;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header a,
+header a:visited {
+  color: #fff;
+  text-decoration: none;
 }
 
 nav {
   text-align: right;
+}
+
+nav a {
+  color: #fff;
 }
 
 section {
@@ -41,11 +142,6 @@ header li {
   display: inline-block;
   list-style-type: none;
   margin-right: 15px;
-}
-
-a,
-a:visited {
-  color: #000;
 }
 
 footer {
@@ -86,4 +182,10 @@ footer li {
   display: inline-block;
   list-style-type: none;
   line-height: 16px;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    width: 100%;
+  }
 }
