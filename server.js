@@ -36,42 +36,54 @@ hbs.registerHelper('getCurrentYear', () => new Date().getFullYear());
 hbs.registerHelper('screamIt', (text) => text.toUpperCase());
 
 app.use((req, res, next) => {
-  ipify().then((ip) => {
-    console.log(ip);
-    axios.get(`http://ipinfo.io/${ip}`)
+  axios.get(`https://api.darksky.net/forecast/e4a0ad9fe4bd5f6ecc80bfde0ff03c06/34,-118`)
     .then((response) => {
-        var coords = response.data.loc.split(',');
-        var city = response.data.city;
-        var state = response.data.region;
-        weather.getWeather(coords)
-        .then((response) => {
-          var temperature = response.data.currently.temperature.toString().split('.');
-          temperature = temperature[0] + '°';
-          res.locals = {
-            temperature: temperature,
-            city: city,
-            state: state
-          };
-        })
-        .catch((error) => {
-          console.log('WEATHER ERROR');
-          console.log(error);
-        });
+        var temperature = response.data.currently.temperature.toString().split('.');
+        temperature = temperature[0] + '°';
+        res.locals.temperature = temperature;
+        next();
     })
     .catch((error) => {
       console.log('IP ERROR');
-    });
-  });
-  next();
+      console.log(error);
+    })
 });
 
+
+// app.use((req, res, next) => {
+//   ipify().then((ip) => {
+//     console.log(ip);
+//     axios.get(`http://ipinfo.io/${ip}`)
+//       .then((response) => {
+//           var coords = response.data.loc.split(',');
+//           var city = response.data.city;
+//           var state = response.data.region;
+//           res.locals.city = city;
+//           res.locals.state = state;
+//           return weather.getWeather(coords);
+//       })
+//       .then((response) => {
+//           var temperature = response.data.currently.temperature.toString().split('.');
+//           temperature = temperature[0] + '°';
+//           res.locals.temperature = temperature;
+//           next();
+//       })
+//       .catch((error) => {
+//         console.log('IP ERROR');
+//         console.log(error);
+//       })
+//     });
+// });
+
 app.get('/', (req, res) => {
-  console.log('LOCALS');
+  console.log('LOCALS:');
   console.log(res.locals);
     res.render('home.hbs', {
       pageTitle: 'jFozztino',
       subHeader: `software developer and <a href="https://twitter.com/intent/tweet?text=Hey, @ArianaGrande, @jFozztino thinks you're awesome" target="_blank">Ariana Grande</a>'s 287th biggest fan`,
       temp: res.locals.temperature,
+      city: res.locals.city,
+      state: res.locals.state,
       welcomeMessage: 'welcome to my internet location. enjoy some of my codes:',
     });
 });

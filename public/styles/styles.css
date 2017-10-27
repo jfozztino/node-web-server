@@ -1,62 +1,58 @@
 html {
   background-color: #efefef;
+  border-top: 5px solid #000;
+  height: 100%;
+  min-height: 100%;
 }
 
-html,
 body {
-  height: 100%;
-  min-height: 100%;
-  margin: 0;
+  margin-bottom: 50px;
 }
-.container {
-  height: 100%;
-  min-height: 100%;
-  border-top: 5px solid #000;
+.container-fluid {
   background-color: #fff;
-  width: 960px;
   display: block;
   margin: 0 auto;
   font-family: 'Heebo', Arial, sans-serif;
   position: relative;
-  padding-bottom: 50px;
+  padding: 0 0 50px;
 }
+
 .banner-img {
   background-image: url('../images/la-sunset-profile.jpeg');
   background-size: cover;
-  height: 300px;
+  background-position: center center;
+  height: 400px;
   width: 100%;
   position: relative;
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
   -ms-align-items: center;
-  align-items: flex-start;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
 }
 
 .banner-img img {
+  position: relative;
+  z-index: 100000;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  margin: 40px 40px 0 0;
-  -webkit-box-shadow: 0 0 100px #000;
-  box-shadow: 0 0 100px #000;
+  width: 220px;
+  height: 220px;
+  -webkit-box-shadow: 0 0 100px #fff;
+  box-shadow: 0 0 100px #fff;
   -webkit-animation-name: throb;
   animation-name: throb;
-  -webkit-animation-duration: 4s;
-  animation-duration: 4s;
-  -webkit-animation-iteration-count: 4;
-  animation-iteration-count: 4;
-  -webkit-transform: rotateY(0deg);
-  -ms-transform: rotateY(0deg);
-  transform: rotateY(0deg);
-  transition: 2s;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  cursor: pointer;
 }
 
-/*.banner-img img:hover {
+.banner-img img:focus {
   animation-name: spin;
   border: 5px solid #000;
-}*/
+}
 
 @keyframes spin {
   0% {
@@ -64,10 +60,10 @@ body {
     -ms-transform: rotateY(0deg);
     transform: rotateY(0deg);
   }
-  50% {
-    -webkit-transform: rotateY(180deg);
-    -ms-transform: rotateY(180deg);
-    transform: rotateY(180deg);
+  100% {
+    -webkit-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    transform: rotateY(360deg);
   }
 }
 
@@ -114,9 +110,9 @@ body {
     transform: scale(1, 1);
   }
   50% {
-    -ms-transform: scale(.6, .6);
-    -webkit-transform: scale(.6, .6);
-    transform: scale(.6, .6);
+    -ms-transform: scale(.9, .9);
+    -webkit-transform: scale(.9, .9);
+    transform: scale(.9, .9);
   }
 }
 
@@ -124,10 +120,41 @@ header {
   padding: 10px 40px;
   color: #fff;
   background-color: #000;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-header h1 {
-  margin: 0;
+.content-container {
+  display: block;
+  margin: 0 auto;
+  width: 1170px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.title h1 {
+  margin: 0 20px 0 0;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.title div {
+  height: 18px;
 }
 
 header a,
@@ -135,13 +162,23 @@ header a:visited {
   color: #fff;
   text-decoration: none;
 }
-
-nav {
-  text-align: right;
+.weather {
+  -ms-align-self: flex-end;
+  align-self: flex-end;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: flex-end;
+  -ms-align-items: center;
+  align-items: center;
 }
-
-nav a {
-  color: #fff;
+.temperature {
+  font-size: 36px;
+  font-weight: bold;
+  margin-left: 15px;
+}
+.location {
+  font-size: 14px;
 }
 
 section {
@@ -160,26 +197,26 @@ header li {
 
 footer {
   height: 50px;
-  width: 960px;
+  width: 100%;
   max-width: 100%;
   color: #fff;
   background-color: #000;
   position: absolute;
   bottom: 0;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: center;
+}
+
+footer .content-container {
+  justify-content: flex-end;
 }
 
 footer p {
   display: inline-block;
-}
-
-footer div {
-  height: 100%;
-  width: 33%;
-  float: right;
-  padding: 0 40px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
 }
 
 footer a {
@@ -192,10 +229,8 @@ footer img {
   height: 16px;
 }
 
-footer li {
-  display: inline-block;
-  list-style-type: none;
-  line-height: 16px;
+footer a {
+  margin-left: 20px;
 }
 
 @media screen and (max-width: 900px) {

@@ -1,16 +1,11 @@
-<div class="banner-img">
-  <!-- <img src="images/cropped-fozztinoDragon-220x220.png" alt="dragon"> -->
-  <img src="images/jFozztino-SEMPLS.png" alt="jFozztino" onclick="changeSpeedAndSize(this, '.1s', '170px', '4s', '40px');" >
-  <!-- onmouseout="changeSpeedAndSize(this,'4s', 'auto')" -->
-</div>
 <header>
-  <h1 style="display: inline-block;">{{pageTitle}}</h1>
-  <span>software developer and <a href="https://twitter.com/intent/tweet?text=Hey%20@ArianaGrande,%20@jFozztino%20is%20your%20287th%20biggest%20fan!" target="_blank">Ariana Grande</a>'s 287th biggest fan</span>
-  <span>{{temp}}</span>
-  <!-- <nav>
-    <ul>
-      <li><a href="/">home</a></li>
-      <li><a href="/projects">projects</a></li>
-    </ul>
-  </nav> -->
+  <div class="content-container">
+    <div class="title">
+      <h1 style="display: inline-block;">{{pageTitle}}</h1>
+      <div>software developer and <a href="https://twitter.com/intent/tweet?text=Hey%20@ArianaGrande,%20@jFozztino%20is%20your%20287th%20biggest%20fan!" target="_blank">Ariana Grande</a>'s 287th biggest fan</div>
+    </div>
+    <div class="weather">
+      <span class="location">Los Angeles, CA</span><span class="temperature">{{temp}}</span>
+    </div>
+  </div>
 </header>
